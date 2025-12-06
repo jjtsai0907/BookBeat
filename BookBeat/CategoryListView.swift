@@ -6,7 +6,7 @@ struct CategoryListView: View {
     var body: some View {
         NavigationStack(path: $viewModel.path) {
             List(viewModel.categories, id: \.id) { category in
-                Button(category.title) {
+                CategoryCell(category: category) {
                     viewModel.appendCategory(category)
                 }
             }
