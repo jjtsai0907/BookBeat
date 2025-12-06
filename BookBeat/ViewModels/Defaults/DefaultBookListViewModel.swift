@@ -21,6 +21,8 @@ final class DefaultBookListViewModel: BookListViewModel {
     }
 
     func loadBooks(from urlString: String) async {
+        loadingState = .loading
+
         do {
             books = try await bookManager.fetchBooks(from: urlString)
             loadingState = .loaded
