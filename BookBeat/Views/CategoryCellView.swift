@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct CategoryCell: View {
+struct CategoryCellView: View {
     let category: Category
     let onTap: () -> Void
 
@@ -70,8 +70,8 @@ struct CategoryCell: View {
     )
 
     Group {
-        CategoryCell(category: loading) {}
-        CategoryCell(category: Category.mock) {}
-        CategoryCell(category: failed) {}
+        CategoryCellView(category: loading) {}
+        CategoryCellView(category: Category.mock) {}
+        CategoryCellView(category: failed) {}
     } .padding()
 }

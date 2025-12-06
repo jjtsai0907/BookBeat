@@ -28,7 +28,7 @@ struct CategoryListView: View {
                 Text("No categories found.")
             } else {
                 List(viewModel.categories, id: \.id) { category in
-                    CategoryCell(category: category) {
+                    CategoryCellView(category: category) {
                         viewModel.appendCategory(category)
                     }
                 }
