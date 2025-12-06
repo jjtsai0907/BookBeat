@@ -1,21 +1,18 @@
-//
-//  ContentView.swift
-//  BookBeat
-//
-//  Created by Jia-Jiuan Tsai on 2025-12-06.
-//
-
 import SwiftUI
 
 struct ContentView: View {
+    @State private var path: [String] = []
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationStack(path: $path) {
+            Button("Go to Book List") {
+                path.append("Book List View")
+            }
+            .navigationDestination(for: String.self, destination: { value in
+                BookListView()
+            })
+            .navigationTitle("Books")
         }
-        .padding()
     }
 }
 
