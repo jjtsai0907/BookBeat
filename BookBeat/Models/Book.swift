@@ -1,6 +1,6 @@
 import Foundation
 
-struct Book: Decodable {
+struct Book: Decodable, Equatable {
     let id: Int
     let title: String
     let description: String
