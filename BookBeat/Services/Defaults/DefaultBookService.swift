@@ -8,15 +8,15 @@ struct DefaultBookService: BookService {
     }
 
     func fetchCategories() async throws -> [Category] {
-        let categoryResponse = try await networkHelper.request(urlString: Constants.categoriesEndpoint, as: CategoriesResponse.self)
+        let categoriesResponse = try await networkHelper.request(urlString: Constants.categoriesEndpoint, as: CategoriesResponse.self)
 
-        return categoryResponse.embeddedCategories.categories
+        return categoriesResponse.embeddedCategories.categories
     }
 
     func fetchBooks(from urlString: String) async throws -> [Book] {
-        let bookResponse = try await networkHelper.request(urlString: urlString, as: BookResponse.self)
+        let booksResponse = try await networkHelper.request(urlString: urlString, as: BooksResponse.self)
 
-        return bookResponse.embedded.books
+        return booksResponse.embedded.books
     }
 
     private enum Constants {

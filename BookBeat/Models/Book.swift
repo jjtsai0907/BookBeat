@@ -44,7 +44,7 @@ struct Book: Decodable, Equatable {
     ]
 }
 
-struct BookResponse: Decodable {
+struct BooksResponse: Decodable {
     let title: String
     let description: String
     let embedded: EmbeddedBooks
