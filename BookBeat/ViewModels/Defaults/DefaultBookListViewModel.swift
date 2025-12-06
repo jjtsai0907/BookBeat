@@ -2,12 +2,18 @@ import Foundation
 
 @Observable
 final class DefaultBookListViewModel: BookListViewModel {
-    private let bookManager: BookManager
     private(set) var books: [Book]
     private(set) var category: Category
     private(set) var loadingState: LoadingState
 
-    init(bookManager: BookManager, books: [Book] = [], category: Category, loadingState: LoadingState = .loading) {
+    private let bookManager: BookManager
+
+    init(
+        bookManager: BookManager,
+        books: [Book] = [],
+        category: Category,
+        loadingState: LoadingState = .loading
+    ) {
         self.bookManager = bookManager
         self.books = books
         self.category = category

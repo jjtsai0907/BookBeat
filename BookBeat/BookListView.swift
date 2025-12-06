@@ -34,5 +34,5 @@ struct BookListView: View {
 }
 
 #Preview {
-    BookListView(viewModel: MockBookListViewModel())
+    BookListView(viewModel: MockBookListViewModel(loadingState: .loaded))
 }

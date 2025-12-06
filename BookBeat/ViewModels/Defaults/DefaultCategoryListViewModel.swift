@@ -1,14 +1,20 @@
 import Foundation
 
 @Observable
-class DefaultCategoryListViewModel: CategoryListViewModel {
-    var bookManager: BookManager
-    var categories: [Category]
+final class DefaultCategoryListViewModel: CategoryListViewModel {
     var path: [Category]
 
     private(set) var loadingState: LoadingState
+    private(set) var categories: [Category]
 
-    init(path: [Category] = [], categories: [Category] = Category.mocks, bookManager: BookManager, loadingState: LoadingState = .loading) {
+    private let bookManager: BookManager
+
+    init(
+        path: [Category] = [],
+        categories: [Category] = [],
+        bookManager: BookManager,
+        loadingState: LoadingState = .loading
+    ) {
         self.path = path
         self.categories = categories
         self.bookManager = bookManager

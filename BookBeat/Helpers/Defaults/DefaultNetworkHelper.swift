@@ -30,12 +30,11 @@ struct DefaultNetworkHelper: Networking {
             throw NetworkError.decoding(error)
         }
     }
-}
 
-
-private enum NetworkError: Error {
-    case invalidURL(String)
-    case invalidResponse
-    case httpError(statusCode: Int)
-    case decoding(Error)
+    private enum NetworkError: Error {
+        case invalidURL(String)
+        case invalidResponse
+        case httpError(statusCode: Int)
+        case decoding(Error)
+    }
 }
