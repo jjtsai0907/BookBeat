@@ -2,7 +2,7 @@ import SwiftUI
 
 struct CategoryListView: View {
     @State var viewModel: CategoryListViewModel
-
+    
     var body: some View {
         NavigationStack(path: $viewModel.path) {
             List(viewModel.categories, id: \.id) { category in
@@ -17,17 +17,13 @@ struct CategoryListView: View {
             .navigationTitle("Books")
         }
         .task {
-            do {
-                viewModel.categories = try await viewModel.bookService.fetchCategories()
-            } catch {
-                // handle this in a Manager instead
-            }
+            await viewModel.loadCategories()
         }
     }
 }
 
 #Preview {
-    let vm = MockCategoryListViewModel(bookService: DefaultBookService())
+    let vm = MockCategoryListViewModel(bookManager: MockBookManager())
     CategoryListView(viewModel: vm)
 }
 

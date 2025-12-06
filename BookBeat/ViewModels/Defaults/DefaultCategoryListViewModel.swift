@@ -2,19 +2,31 @@ import Foundation
 
 @Observable
 class DefaultCategoryListViewModel: CategoryListViewModel {
-    var bookService: BookService
-
+    var bookManager: BookManager
     var categories: [Category]
-    
     var path: [Category]
 
-    init(path: [Category] = [], categories: [Category] = Category.mocks, bookService: BookService) {
+    private(set) var loadingState: LoadingState
+
+    init(path: [Category] = [], categories: [Category] = Category.mocks, bookManager: BookManager, loadingState: LoadingState = .loading) {
         self.path = path
         self.categories = categories
-        self.bookService = bookService
+        self.bookManager = bookManager
+        self.loadingState = loadingState
     }
 
     func appendCategory(_ category: Category) {
         path.append(category)
+    }
+
+    func loadCategories() async {
+        loadingState = .loading
+
+        do {
+            categories = try await bookManager.fetchCategories()
+            loadingState = .loaded
+        } catch {
+            loadingState = .failed
+        }
     }
 }

@@ -1,4 +1,4 @@
-struct MockDataService: BookService {
+struct MockBookService: BookService {
     func fetchCategories() async throws -> [Category] {
         Category.mocks
     }
