@@ -11,8 +11,8 @@ struct CategoryListView: View {
                 }
             }
             .listStyle(.plain)
-            .navigationDestination(for: Category.self, destination: { _ in
-                BookListView()
+            .navigationDestination(for: Category.self, destination: { value in
+                BookListView(viewModel: DefaultBookListViewModel(category: value))
             })
             .navigationTitle("Books")
         }

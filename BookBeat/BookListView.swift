@@ -1,11 +1,12 @@
 import SwiftUI
 
 struct BookListView: View {
+    @State var viewModel: BookListViewModel
     var body: some View {
-        Text("This is Book List View")
+        Text(viewModel.category.title)
     }
 }
 
 #Preview {
-    BookListView()
+    BookListView(viewModel: MockBookListViewModel())
 }
