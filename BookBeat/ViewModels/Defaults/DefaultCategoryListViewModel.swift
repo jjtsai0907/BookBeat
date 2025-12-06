@@ -2,9 +2,16 @@ import Foundation
 
 @Observable
 class DefaultCategoryListViewModel: CategoryListViewModel {
-    var path: [String]
+    var categories: [Category]
+    
+    var path: [Category]
 
-    init(path: [String] = []) {
+    init(path: [Category] = [], categories: [Category] = Category.mocks) {
         self.path = path
+        self.categories = categories
+    }
+
+    func appendCategory(_ category: Category) {
+        path.append(category)
     }
 }

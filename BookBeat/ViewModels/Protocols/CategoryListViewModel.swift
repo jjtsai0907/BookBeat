@@ -1,3 +1,6 @@
 protocol CategoryListViewModel {
-    var path: [String] { get set }
+    var path: [Category] { get set }
+    var categories: [Category] { get set }
+
+    func appendCategory(_ category: Category)
 }

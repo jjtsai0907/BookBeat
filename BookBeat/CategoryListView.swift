@@ -5,10 +5,13 @@ struct CategoryListView: View {
 
     var body: some View {
         NavigationStack(path: $viewModel.path) {
-            Button("Go to Book List") {
-                viewModel.path.append("Book List View")
+            List(viewModel.categories, id: \.id) { category in
+                Button(category.title) {
+                    viewModel.appendCategory(category)
+                }
             }
-            .navigationDestination(for: String.self, destination: { _ in
+            .listStyle(.plain)
+            .navigationDestination(for: Category.self, destination: { _ in
                 BookListView()
             })
             .navigationTitle("Books")
