@@ -16,11 +16,18 @@ struct CategoryListView: View {
             })
             .navigationTitle("Books")
         }
+        .task {
+            do {
+                viewModel.categories = try await viewModel.bookService.fetchCategories()
+            } catch {
+                // handle this in a Manager instead
+            }
+        }
     }
 }
 
 #Preview {
-    let vm = MockCategoryListViewModel()
+    let vm = MockCategoryListViewModel(bookService: DefaultBookService())
     CategoryListView(viewModel: vm)
 }
 
