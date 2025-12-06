@@ -35,4 +35,8 @@ final class DefaultCategoryListViewModel: CategoryListViewModel {
             loadingState = .failed
         }
     }
+
+    func makeBookListViewModel(category: Category) -> BookListViewModel {
+        DefaultBookListViewModel(bookManager: bookManager, category: category)
+    }
 }

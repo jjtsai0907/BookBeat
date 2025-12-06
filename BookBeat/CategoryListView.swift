@@ -7,7 +7,7 @@ struct CategoryListView: View {
         NavigationStack(path: $viewModel.path) {
             content
             .navigationDestination(for: Category.self, destination: { value in
-                BookListView(viewModel: DefaultBookListViewModel(bookManager: DefaultBookManager(service: DefaultBookService()), category: value))
+                BookListView(viewModel: viewModel.makeBookListViewModel(category: value))
             })
             .navigationTitle("Books")
         }
