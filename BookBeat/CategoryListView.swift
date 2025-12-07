@@ -29,7 +29,7 @@ struct CategoryListView: View {
             } else {
                 List(viewModel.categories, id: \.id) { category in
                     CategoryCellView(category: category) {
-                        viewModel.appendCategory(category)
+                        viewModel.displayBooks(category)
                     }
                 }
                 .listStyle(.plain)

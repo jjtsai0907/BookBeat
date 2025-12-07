@@ -21,7 +21,7 @@ final class DefaultCategoryListViewModel: CategoryListViewModel {
         self.loadingState = loadingState
     }
 
-    func appendCategory(_ category: Category) {
+    func displayBooks(_ category: Category) {
         path.append(category)
     }
 
