@@ -11,10 +11,8 @@ struct BookListView: View {
             case .loading:
                 ProgressView()
             case .loaded:
-
                 if viewModel.books.isEmpty {
                     Text("No books available in this category.")
-
                 } else {
                     List {
                         ForEach(viewModel.books, id: \.id) { book in

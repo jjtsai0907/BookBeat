@@ -36,19 +36,23 @@ struct CategoryListView: View {
             }
 
         case .failed:
-            VStack(spacing: 12) {
-                Text("Failed to load categories. Please try again later.")
-                    .multilineTextAlignment(.center)
-
-                Button("Retry") {
-                    Task {
-                        await viewModel.loadCategories()
-                    }
-                }
-                .disabled(viewModel.loadingState == .loading ? true : false)
-            }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            failedView
         }
+    }
+
+    private var failedView: some View {
+        VStack(spacing: 12) {
+            Text("Failed to load categories. Please try again later.")
+                .multilineTextAlignment(.center)
+
+            Button("Retry") {
+                Task {
+                    await viewModel.loadCategories()
+                }
+            }
+            .disabled(viewModel.loadingState == .loading ? true : false)
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
 
