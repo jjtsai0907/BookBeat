@@ -7,17 +7,24 @@ struct CategoryCellView: View {
     var body: some View {
         Button(action: onTap) {
             VStack(alignment: .leading, spacing: 8) {
-                StandardImageView(imageString: category.image)
-                    .frame(height: 200)
-                    .clipShape(RoundedRectangle(cornerRadius: 12))
-                    .clipped()
-
-                Text(category.title)
-                    .font(.headline)
-                    .foregroundColor(.primary)
-                    .lineLimit(2)
+                categoryImage
+                categoryTitle
             }
         }
+    }
+
+    private var categoryImage: some View {
+        StandardImageView(imageString: category.image)
+            .frame(height: 200)
+            .clipShape(RoundedRectangle(cornerRadius: 12))
+            .clipped()
+    }
+
+    private var categoryTitle: some View {
+        Text(category.title)
+            .font(.headline)
+            .foregroundColor(.primary)
+            .lineLimit(2)
     }
 }
 

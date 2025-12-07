@@ -9,7 +9,7 @@ struct CategoryListView: View {
             .navigationDestination(for: Category.self, destination: { value in
                 BookListView(viewModel: viewModel.makeBookListViewModel(category: value))
             })
-            .navigationTitle("Books")
+            .navigationTitle("Categories")
         }
         .task {
             await viewModel.loadCategories()
