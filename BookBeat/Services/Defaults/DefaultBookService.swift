@@ -3,7 +3,7 @@ import Foundation
 struct DefaultBookService: BookService {
     private let networkHelper: Networking
 
-    init(networkHelper: Networking = DefaultNetworkHelper(session: .shared, decoder: .init())) {
+    init(networkHelper: Networking) {
         self.networkHelper = networkHelper
     }
 

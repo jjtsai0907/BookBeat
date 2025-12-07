@@ -4,7 +4,7 @@ struct DefaultNetworkHelper: Networking {
     private let session: URLSession
     private let decoder: JSONDecoder
 
-    init(session: URLSession = .shared, decoder: JSONDecoder = .init()) {
+    init(session: URLSession, decoder: JSONDecoder) {
         self.session = session
         self.decoder = decoder
     }

@@ -4,7 +4,7 @@ import SwiftUI
 struct BookBeatApp: App {
     var body: some Scene {
         WindowGroup {
-            CategoryListView(viewModel: DefaultCategoryListViewModel(bookManager: DefaultBookManager(service: DefaultBookService())))
+            CategoryListView(viewModel: DefaultCategoryListViewModel(bookManager: DefaultBookManager(service: DefaultBookService(networkHelper: DefaultNetworkHelper(session: .shared, decoder: JSONDecoder())))))
         }
     }
 }
