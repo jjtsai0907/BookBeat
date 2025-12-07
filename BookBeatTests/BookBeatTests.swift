@@ -1,10 +1,3 @@
-//
-//  BookBeatTests.swift
-//  BookBeatTests
-//
-//  Created by Jia-Jiuan Tsai on 2025-12-06.
-//
-
 import Testing
 @testable import BookBeat
 
@@ -19,7 +12,7 @@ struct BookBeatTests {
         )
 
         // Act
-        await sut.loadBooks(from: "https://example.com/books.json")
+        await loadBooks(for: sut)
 
         // Assert
         await #expect(sut.books == expectedBooks)
@@ -37,11 +30,15 @@ struct BookBeatTests {
         )
 
         // Act
-        await sut.loadBooks(from: "https://example.com/books.json")
+        await loadBooks(for: sut)
 
         // Assert
         await #expect(sut.books == expectedBooks)
         await #expect(sut.loadingState == .failed)
+    }
+
+    private func loadBooks(for sut: DefaultBookListViewModel) async {
+        await sut.loadBooks(from: "https://example.com/books.json")
     }
 
     private enum DummyError: Error { case failure }
