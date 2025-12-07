@@ -1,6 +1,6 @@
 import Foundation
 
-struct MockBookListViewModel: BookListViewModel {
+class MockBookListViewModel: BookListViewModel {
     let category: Category = .mock
     var books: [Book] = Book.mocks
     let loadingState: LoadingState

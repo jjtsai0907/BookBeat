@@ -1,4 +1,4 @@
-struct MockCategoryListViewModel: CategoryListViewModel {
+class MockCategoryListViewModel: CategoryListViewModel {
     var categories: [Category] = Category.mocks
     var path: [Category] = []
     let loadingState: LoadingState
