@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct StandardImageView: View {
-    var imageString: String
+    let imageString: String
 
     var body: some View {
         AsyncImage(url: URL(string: imageString)) { phase in
